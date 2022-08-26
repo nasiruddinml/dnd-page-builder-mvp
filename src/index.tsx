@@ -3,13 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import New from './pages/New';
+import Edit from './pages/Edit';
+import Preview from './pages/Preview';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+// Let init our dnd provider with help of react-dnd
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="new" element={<New />} />
+      <Route path="edit" element={<Edit />} />
+      <Route path="preview" element={<Preview />} />
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
